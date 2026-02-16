@@ -3,6 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SrijanBigTextSVG from "./SrijanBigTextSVG";
@@ -32,6 +33,7 @@ const SOCIAL_LINKS = [
 
 export default function Footer() {
   const footerRef = useRef<HTMLElement>(null);
+  const pathname = usePathname();
 
   useEffect(() => {
     if (!footerRef.current) return;
@@ -65,7 +67,7 @@ export default function Footer() {
     }, footerRef);
 
     return () => ctx.revert();
-  }, []);
+  }, [pathname]);
 
   return (
     <footer
