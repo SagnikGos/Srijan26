@@ -16,7 +16,7 @@ export default function ChatWidget() {
     {
       role: "assistant",
       content:
-        "Hi! I am Kalpana, the official mascot for Srijan 2026. Ask me anything about events, dates, or rules!",
+        "Hi! I am Kalpana 3.0, the official mascot for Srijan 2026. Ask me anything about events, dates, or rules!",
     },
   ]);
 
@@ -176,7 +176,7 @@ export default function ChatWidget() {
                 </div>
                 <div>
                   <span style={{ display: "block", color: "#ebd87d", fontWeight: 700, fontSize: 13, letterSpacing: "0.03em", fontFamily: "var(--font-elnath), sans-serif" }}>
-                    KALPANA
+                    KALPANA 3.0
                   </span>
                   <span style={{ display: "block", color: "rgba(255,255,255,0.4)", fontSize: 10, letterSpacing: "0.08em", textTransform: "uppercase" }}>
                     Srijan&nbsp;2026&nbsp;AI
@@ -207,7 +207,7 @@ export default function ChatWidget() {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={handleKeyDown}
-                placeholder="Ask about events…"
+                placeholder="Enter message…"
                 rows={1}
                 className="srijan-textarea"
                 style={{ flex: 1, background: "rgba(255,255,255,0.04)", color: "rgba(255,255,255,0.9)", fontSize: 13, padding: "11px 14px", borderRadius: 12, border: "1px solid rgba(235,216,125,0.15)", outline: "none", resize: "none", minHeight: 44, maxHeight: 128, fontFamily: "inherit", lineHeight: 1.5, caretColor: "#f09400" }}
@@ -245,10 +245,11 @@ export default function ChatWidget() {
             aria-label="Toggle chat"
           >
             <img
-              src={FALLBACK_AVATAR}
+              src={BOT_AVATAR}
               alt="Kalpana"
               className="srijan-toggle-img-size"
-              style={{ objectFit: "cover", display: "block" }}
+              style={{ objectFit: "cover", display: "block", paddingBottom: 4 }}
+              onError={(e) => { (e.target as HTMLImageElement).src = FALLBACK_AVATAR; }}
             />
           </button>
         </div>

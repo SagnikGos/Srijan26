@@ -1,5 +1,5 @@
-export const BOT_AVATAR = "/assets/icons/mascot.svg";
-export const POSTER_BASE_URL = "/assets/icons/";
+export const BOT_AVATAR = "/images/kalpana-face.png";
+export const POSTER_BASE_URL = "/posters/";
 export const FALLBACK_AVATAR =
   "https://i.pinimg.com/1200x/5c/0b/fd/5c0bfd43a67433771a66d46ab09bef06.jpg";
 
@@ -31,7 +31,7 @@ export const QUICK_QUESTIONS = [
     id: 3,
     label: "Date and Timeline of Srijan 2026",
     answer:
-      "Srijan 2026 is scheduled from March 12th to March 15th, 2026.\n\nIt will be held at Jadavpur University (Main Campus & Salt Lake Campus).",
+      "Srijan 2026 is scheduled from April 9th to 12th, 2026.\n\nIt will be held at Jadavpur University Salt Lake Campus.",
     link: null,
   },
 ];
