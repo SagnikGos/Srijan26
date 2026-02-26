@@ -8,20 +8,25 @@ type ContactPerson = {
 
 const contacts: ContactPerson[] = [
   {
-    name: "Arjun Sen",
-    position: "Event Coordinator",
-    phone: "+91 98765 43210",
+    name: "Ankush Agarwala",
+    position: "Event Team",
+    phone: "+91 96356 09058",
   },
   {
-    name: "Riya Mukherjee",
-    position: "Technical Head",
-    phone: "+91 91234 56789",
+    name: "Saumili Ray",
+    position: "Design Team",
+    phone: "+91 73188 09736",
   },
   {
-    name: "Sayan Das",
-    position: "Sponsorship Lead",
-    phone: "+91 99887 66554",
+    name: "Shrawtrik Bhattacharjee",
+    position: "Invitation Team",
+    phone: "+91 82407 93529",
   },
+  {
+    name: "Rahul Pandey",
+    position: "Tech Team",
+    phone: "+91 89617 16604",
+  }
 ];
 
 export const ContactUs = () => {
@@ -33,11 +38,11 @@ export const ContactUs = () => {
           className="text-4xl md:text-5xl lg:text-7xl font-elnath text-yellow ml-10 mb-10 sm:ml-18 lg:ml-24 sm:mb-16 flex justify-start"
         />
       </div>
-      <ul className="divide-y divide-white/10 py-8 md:px-16 lg:px-32">
+      <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 py-8 md:px-16 lg:px-32">
         {contacts.map((person, index) => (
           <li
             key={index}
-            className="px-8 py-6 flex flex-row items-center justify-between gap-2 hover:bg-white/5 transition-all duration-300"
+            className="px-8 py-6 flex flex-row items-center justify-between gap-2 rounded-xl border border-white/10 hover:bg-white/5 transition-all duration-300"
           >
             <div>
               <p className="text-lg font-semibold tracking-wide">

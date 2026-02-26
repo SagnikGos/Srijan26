@@ -15,12 +15,12 @@ const NAV_LINKS = [
   { label: "Home", href: "/" },
   { label: "Events", href: "/events" },
   { label: "Merchandise", href: "/merchandise" },
-  { label: "Dashboard", href: "/dashboard" },
+  // { label: "Dashboard", href: "/dashboard" },
   { label: "Contact", href: "/#contact-us" },
 ];
 
 const LEGAL_LINKS = [
-  { label: "Privacy", href: "/privacy" },
+  { label: "Privacy", href: "/pdf/Privacy_Policy.pdf" },
   { label: "Terms", href: "/terms" },
   { label: "Events", href: "/events" },
 ];
@@ -48,7 +48,7 @@ function FooterInner() {
           trigger: footerRef.current,
           start: "center 100%",
           end: "bottom bottom",
-          scrub: 1, 
+          scrub: 1,
         },
       }
     );
@@ -99,7 +99,7 @@ function FooterInner() {
             </div>
           </div>
           <p className="text-white/70 text-base leading-relaxed font-euclid">
-            A convergence of innovation, competition, and culture – the spirit of
+            A convergence of innovation, competition, and culture - the spirit of
             engineering at Jadavpur University.
           </p>
         </div>

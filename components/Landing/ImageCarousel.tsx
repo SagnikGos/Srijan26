@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 
-const galleryImages: CarouselImage[] = Array.from({ length: 28 }).map((_, i) => ({
+const galleryImages: CarouselImage[] = Array.from({ length: 52 }).map((_, i) => ({
   src: `/images/gallery/${i + 1}.webp`,
   label: "Previous Edition",
 }));
@@ -140,7 +140,7 @@ export function Carousel({ images = galleryImages }: CarouselProps) {
 
   return (
     <div className="full-bleed py-20 relative flex flex-col items-center justify-center px-4 sm:px-16 md:px-32 overflow-hidden">
-      
+
       {/* Title */}
       <div className="mb-12 relative z-20 w-full">
         <AnimatedSectionTitle
@@ -175,7 +175,7 @@ export function Carousel({ images = galleryImages }: CarouselProps) {
             {cardW > 0 &&
               images.map((img, i) => {
                 const pos = getPos(i, current, n);
-                
+
                 // PERFORMANCE OPTIMIZATION: Only render cards that are relatively close to the current view
                 // Math.abs(pos) <= 3 means we only render the center card + 3 on each side
                 // The rest are completely unmounted from the DOM
@@ -230,7 +230,7 @@ export function Carousel({ images = galleryImages }: CarouselProps) {
       {/* Descriptive Text */}
       <div className="relative z-20 mt-8 mb-4 max-w-2xl px-4 text-center mx-auto">
         <p className="text-sm sm:text-base font-inter text-gray-300">
-          Experience the incredible energy, innovation, and legacy of Srijan. 
+          Experience the incredible energy, innovation, and legacy of Srijan.
           A journey through our past editions celebrating technology, management, and culture.
         </p>
       </div>
