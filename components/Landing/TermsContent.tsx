@@ -2,13 +2,8 @@
 
 import { useRef } from "react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { AnimatedSectionTitle } from "./AnimatedSectionTitle";
-
-if (typeof window !== "undefined") {
-    gsap.registerPlugin(ScrollTrigger);
-}
 
 const termsAndConditions = [
     {
@@ -80,40 +75,45 @@ export function TermsContent() {
 
     useGSAP(
         () => {
-            gsap.fromTo(
-                ".terms-intro",
-                { opacity: 0, y: 20 },
-                {
+            const introEls = containerRef.current?.querySelectorAll(".terms-intro");
+            const cards = containerRef.current?.querySelectorAll(".terms-card");
+            if (!introEls?.length && !cards?.length) return;
+
+            // Set initial hidden states programmatically (like ComingSoon.tsx)
+            if (introEls?.length) {
+                gsap.set(introEls, { opacity: 0, y: 20, filter: "blur(6px)" });
+            }
+            if (cards?.length) {
+                gsap.set(cards, { opacity: 0, y: 30 });
+            }
+
+            // Simple mount animation — no ScrollTrigger needed
+            const tl = gsap.timeline({ delay: 0.15 });
+
+            if (introEls?.length) {
+                tl.to(introEls, {
                     opacity: 1,
                     y: 0,
+                    filter: "blur(0px)",
                     duration: 0.8,
+                    stagger: 0.2,
                     ease: "power3.out",
-                    scrollTrigger: {
-                        trigger: containerRef.current,
-                        start: "top 80%",
-                        toggleActions: "play none none reverse",
-                    },
-                }
-            );
+                });
+            }
 
-            gsap.utils.toArray<HTMLElement>(".terms-card").forEach((card, i) => {
-                gsap.fromTo(
-                    card,
-                    { opacity: 0, y: 30 },
+            if (cards?.length) {
+                tl.to(
+                    cards,
                     {
                         opacity: 1,
                         y: 0,
                         duration: 0.7,
-                        delay: i * 0.08,
+                        stagger: 0.08,
                         ease: "power3.out",
-                        scrollTrigger: {
-                            trigger: card,
-                            start: "top 90%",
-                            toggleActions: "play none none reverse",
-                        },
-                    }
+                    },
+                    introEls?.length ? "-=0.5" : 0
                 );
-            });
+            }
         },
         { scope: containerRef }
     );
@@ -130,7 +130,7 @@ export function TermsContent() {
             />
 
             {/* Intro paragraph */}
-            <p className="terms-intro font-euclid text-base sm:text-lg md:text-xl text-white/60 leading-relaxed max-w-4xl mx-6 sm:mx-10 lg:mx-auto text-center opacity-0">
+            <p className="terms-intro font-euclid text-base sm:text-lg md:text-xl text-white/60 leading-relaxed max-w-4xl mx-6 sm:mx-10 lg:mx-auto text-center">
                 The terms &quot;We&quot; / &quot;Us&quot; / &quot;Our&quot; / &quot;Company&quot; individually and collectively refer to Srijan JU and the terms &quot;Visitor&quot; / &quot;User&quot; refer to the users. Please read this page carefully. If you do not accept the Terms and Conditions stated here, we would request you to exit this site. We reserve the right to revise these Terms and Conditions at any time by updating this posting. They are binding on all users of this Website.
             </p>
 
@@ -142,7 +142,7 @@ export function TermsContent() {
                 {termsAndConditions.map((section, idx) => (
                     <article
                         key={idx}
-                        className="terms-card rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-sm p-6 sm:p-8 flex flex-col gap-4 opacity-0"
+                        className="terms-card rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-sm p-6 sm:p-8 flex flex-col gap-4"
                     >
                         <h3 className="font-elnath text-xl sm:text-2xl md:text-3xl text-yellow tracking-wide uppercase">
                             {section.title}
@@ -191,7 +191,7 @@ export function TermsContent() {
                     {refundPolicy.map((section, idx) => (
                         <article
                             key={idx}
-                            className="terms-card rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-sm p-6 sm:p-8 flex flex-col gap-4 opacity-0"
+                            className="terms-card rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-sm p-6 sm:p-8 flex flex-col gap-4"
                         >
                             <h3 className="font-elnath text-xl sm:text-2xl md:text-3xl text-yellow tracking-wide uppercase">
                                 {section.title}

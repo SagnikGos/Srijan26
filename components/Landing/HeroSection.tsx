@@ -72,6 +72,18 @@ export function HeroSection() {
             yoyo: true,         // Reverses the animation (moves back down)
             repeat: -1,         // Loop infinitely
           });
+
+          // Scroll-driven rotation: clockwise on scroll down, counter-clockwise on scroll up
+          gsap.to(".kalpana-scroll-wrapper", {
+            rotation: 360,
+            ease: "none",
+            scrollTrigger: {
+              trigger: containerRef.current,
+              start: "top top",
+              end: "bottom top",
+              scrub: 1,
+            },
+          });
         },
       });
 
@@ -135,7 +147,7 @@ export function HeroSection() {
           },
           "-=1", // Adjust this to overlap properly with your other hero animations
         );
-        
+
 
       // Wait a tick for the sibling <About /> component to be fully mounted in the DOM
       setTimeout(() => {
@@ -183,10 +195,12 @@ export function HeroSection() {
       ref={containerRef}
       className="relative full-bleed w-full h-[100dvh] pt-40 pb-12 lg:pt-60 lg:pb-16 px-4 sm:px-8 lg:px-6 xl:px-8 flex flex-col justify-center lg:flex-row lg:items-center lg:justify-between overflow-hidden"
     >
-      <KalpanaSVG
-        width={300}
-        className="kalpana-svg absolute z-100 right-50 top-10 opacity-20"
-      />
+      <div className="kalpana-scroll-wrapper absolute z-100 right-[97px] top-20">
+        <KalpanaSVG
+          width={300}
+          className="kalpana-svg opacity-90"
+        />
+      </div>
       {/* Background Video */}
       <div
         className="hero-video-container fixed inset-0 z-0 pointer-events-none h-[100dvh]"
