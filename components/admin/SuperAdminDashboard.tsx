@@ -38,7 +38,7 @@ import {
 } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
 import type { AuthUser } from "@/services/AuthService";
-import { EVENTS_DATA } from "@/components/events/constants/events";
+import { EVENTS_DATA } from "@/data/eventsList";
 import EditEventDetails from "./EditEventDetails";
 
 // Define local types to avoid dependency on @prisma/client which might not be generated
@@ -206,7 +206,7 @@ export function SuperAdminDashboard({ user }: SuperAdminDashboardProps) {
 
     async function handleLiveEventSubmit() {
         if (!newEventSlug || !newEventRound || !newEventLocation) return;
-        const selectedEvent = EVENTS_DATA.find(e => e.link.split("/").pop() === newEventSlug);
+        const selectedEvent = EVENTS_DATA.find(e => e.slug === newEventSlug);
         if (!selectedEvent) return;
 
         if (editingEventId) {
@@ -668,7 +668,10 @@ export function SuperAdminDashboard({ user }: SuperAdminDashboardProps) {
                                     <CardDescription>Events added here will be displayed on the homepage ticker.</CardDescription>
                                 </div>
                                 {activeTab === "live-events" && (
-                                    <EditEventDetails slug={newEventSlug || liveEvents[0]?.slug} />
+                                    <div className="flex items-center gap-2">
+                                        <EditEventDetails slug={newEventSlug || liveEvents[0]?.slug} label="Create Event" />
+                                        <EditEventDetails slug={newEventSlug || liveEvents[0]?.slug} />
+                                    </div>
                                 )}
                             </CardHeader>
                             <CardContent className="space-y-6">
@@ -683,7 +686,7 @@ export function SuperAdminDashboard({ user }: SuperAdminDashboardProps) {
                                                     className="w-full justify-between bg-white text-slate-900 border-slate-200 hover:bg-slate-50"
                                                 >
                                                     {newEventSlug
-                                                        ? EVENTS_DATA.find((e) => e.link.split("/").pop() === newEventSlug)?.title
+                                                        ? EVENTS_DATA.find((e) => e.slug === newEventSlug)?.title
                                                         : "Choose Event..."}
                                                     <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                                                 </Button>
@@ -695,7 +698,7 @@ export function SuperAdminDashboard({ user }: SuperAdminDashboardProps) {
                                                         <CommandEmpty>No event found.</CommandEmpty>
                                                         <CommandGroup className="max-h-60 overflow-y-auto">
                                                             {EVENTS_DATA.map((e) => {
-                                                                const slug = e.link.split("/").pop() || "";
+                                                                const slug = e.slug;
                                                                 return (
                                                                     <CommandItem
                                                                         key={slug}

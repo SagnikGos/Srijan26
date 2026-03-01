@@ -40,7 +40,7 @@ const EventGrid: React.FC<EventGridProps> = ({ filteredEvents }) => {
           </React.Fragment>
         ))
       ) : (
-        <div className="font-euclid col-span-full py-20 text-center text-lg text-white/70">
+        <div className="font-euclid w-full h-full flex py-50 text-center items-center justify-center text-lg text-white/70">
           <p>No events found matching your search.</p>
         </div>
       )}

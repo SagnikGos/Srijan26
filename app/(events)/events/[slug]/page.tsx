@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation";
 import { Metadata } from "next";
-import { EVENTS_DATA } from "@/components/events/constants/events";
+import { EVENTS_DATA } from "@/data/eventsList";
 import EventDetailsClient from "@/components/events/EventDetailsClient";
 
 type Props = {

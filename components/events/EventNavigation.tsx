@@ -2,7 +2,8 @@
 import { Event } from "@/components/events/types/events";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useCallback, useEffect } from "react";
-import { CLIP_PATH, EVENTS_DATA } from "./constants/events";
+import { CLIP_PATH } from "./constants/events";
+import { EVENTS_DATA } from "@/data/eventsList";
 
 interface Props {
   event: Event;

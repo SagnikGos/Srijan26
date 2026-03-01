@@ -195,7 +195,7 @@ export function HeroSection() {
       ref={containerRef}
       className="relative full-bleed w-full h-[100dvh] pt-40 pb-12 lg:pt-60 lg:pb-16 px-4 sm:px-8 lg:px-6 xl:px-8 flex flex-col justify-center lg:flex-row lg:items-center lg:justify-between overflow-hidden"
     >
-      <div className="kalpana-scroll-wrapper absolute z-100 right-[97px] top-20">
+      <div className="kalpana-scroll-wrapper hidden lg:block absolute z-100 right-[97px] top-20">
         <KalpanaSVG
           width={300}
           className="kalpana-svg opacity-90"

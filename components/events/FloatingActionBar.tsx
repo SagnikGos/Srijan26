@@ -28,7 +28,7 @@ export default function FloatingActionBar({ event }: Props) {
         </p>
 
         <div className="flex gap-2 sm:gap-4 w-fit">
-          <DocButton docUrl={event.driveLink ?? event.pdfLink ?? ""} label="RuleBook" />
+          <DocButton docUrl={event.driveLink ?? event.pdfLink ?? ""} label="Details" />
           <ShareButton eventSlug={event.slug} eventTitle={event.title} />
           <RegisterButton status={event.status} link={event.link} />
         </div>

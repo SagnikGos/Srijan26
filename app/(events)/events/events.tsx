@@ -1,17 +1,14 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import { ReactLenis } from "lenis/react";  // add this
 import WavyGradient from "@/components/WavyGradient";
 import Header from "@/components/events/Header";
 import Sidebar from "@/components/events/Sidebar";
 import MobileFilter from "@/components/events/MobileFilter";
 import EventGrid from "@/components/events/EventGrid";
-import {
-  EVENTS_DATA,
-  CATEGORIES,
-  STATUSES,
-} from "@/components/events/constants/events";
+import { CATEGORIES, STATUSES } from "@/components/events/constants/events";
+import { EVENTS_DATA } from "@/data/eventsList";
 import { Category } from "@/components/events/types/events";
 
 export default function EventsPage() {

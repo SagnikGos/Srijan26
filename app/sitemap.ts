@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { EVENTS_DATA } from "@/components/events/constants/events";
+import { EVENTS_DATA } from "@/data/eventsList";
 
 const BASE_URL = "https://www.srijanju.in";
 

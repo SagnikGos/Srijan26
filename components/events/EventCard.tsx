@@ -166,7 +166,7 @@ const EventCard: React.FC<EventCardProps> = memo(({ event }) => {
           />
           <div
             ref={overlayRef}
-            className="absolute inset-0 bg-linear-to-t from-black via-black/40 to-transparent pointer-events-none"
+            className="absolute inset-0 bg-linear-to-t from-0% via-40% to-100% from-black via-black/10 to-transparent pointer-events-none"
           />
         </div>
 

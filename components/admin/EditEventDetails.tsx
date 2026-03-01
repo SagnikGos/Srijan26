@@ -59,9 +59,8 @@ function StringInputField({
                 />
             )}
             <span
-                className={`text-xs ${
-                    errors[field] ? "text-yellow" : "text-transparent"
-                }`}
+                className={`text-xs ${errors[field] ? "text-yellow" : "text-transparent"
+                    }`}
             >
                 {errors[field]?.message}
             </span>
@@ -147,7 +146,7 @@ function StringArrayInputField<
     );
 }
 
-function EditEventDetails({ slug }: { slug: string | undefined }) {
+function EditEventDetails({ slug, label }: { slug: string | undefined; label?: string }) {
     const dialogRef = useRef<HTMLDialogElement>(null);
     const [eventData, setEventData] = useState<EventFormType>(
         getDefaultData(slug),
@@ -231,7 +230,7 @@ function EditEventDetails({ slug }: { slug: string | undefined }) {
                 onClick={openDialog}
                 className="bg-black text-white"
             >
-                Manage Listing
+                {label || "Manage Listing"}
             </Clickable>
             <dialog
                 ref={dialogRef}
