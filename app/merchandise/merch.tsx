@@ -28,7 +28,7 @@ const SplitTextMask = ({ text, className = "", itemClass = "" }: SplitTextMaskPr
       {text.split("").map((char, index) => (
         <span key={index} className="overflow-hidden inline-block pb-1">
           {char === " " ? (
-             <span className="inline-block w-2">&nbsp;</span>
+            <span className="inline-block w-2">&nbsp;</span>
           ) : (
             <span className={`${itemClass} inline-block translate-y-[110%]`}>
               {char}
@@ -40,102 +40,6 @@ const SplitTextMask = ({ text, className = "", itemClass = "" }: SplitTextMaskPr
   );
 };
 
-
-// export default function MerchandisePage() {
-//   return (
-//     <main className="full-bleed min-h-screen bg-[url('/bg.jpg')] bg-cover bg-center relative text-white">
-//       <Balls/>
-//       <div className="absolute inset-0 bg-black/70" />
-
-//       <div
-//         className="
-//           relative z-10
-//           min-h-screen
-//           grid
-//           grid-cols-[1fr_1.2fr]
-//           gap-24
-//           px-24 py-20
-//           items-center
-//         "
-//       >
-//         <div className="flex flex-col items-center gap-10">
-//           <ProductView />
-
-//           {/* <div className="flex gap-4">
-//             <div className="w-16 h-16 border border-white/40" />
-//             <div className="w-16 h-16 border border-white/40" />
-//             <div className="w-16 h-16 border border-white/40" />
-//           </div> */}
-
-//           <div className="flex gap-4">
-//             {[1, 2, 3].map((i) => (
-//               <div
-//                 key={i}
-//                 className="
-//                   w-20 h-20
-//                   border border-white/40
-//                   flex items-center justify-center
-//                   bg-white/5
-//                 "
-//               >
-//                   <Image
-//                     src="/shirt2.png"
-//                     alt="Merchandise preview"
-//                     width={52}
-//                     height={52}
-//                     className="object-contain"
-//                   />
-//                 </div>
-//               ))}
-//             </div>
-//         </div>
-
-//         <div
-//           className="
-//             flex flex-col
-//             items-center
-//             text-center
-//             gap-8
-//             max-w-xl
-//             mx-auto
-//           "
-//         >
-//           <h1 className="text-7xl font-elnath tracking-wide text-[#EBD87D]">
-//             MERCHANDISE
-//           </h1>
-
-//           <div className="text-white/80 space-y-4 font-[var(--font-euclid)]">
-//             <p className="text-[24px] leading-[120%] font-normal">
-//               Presenting the Official Merchandise for Srijan’26!
-//             </p>
-//             <p className="text-[22px] leading-[120%] font-normal">
-//               A polo t-shirt, available in black and white colors.
-//             </p>
-//           </div>
-//           <Price />
-//           <Clickable
-//             className="
-//               mt-4
-//               bg-white text-black
-//               text-2xl
-//               tracking-wide
-//               hover:bg-orange-400
-//             "
-//           >
-//             BUY
-//           </Clickable>
-
-//           <div className="pt-10 flex flex-col items-center gap-6">
-//             <h3 className="text-[#EBD87D] text-2xl">
-//               Contact
-//             </h3>
-//             <Contact />
-//           </div>
-//         </div>
-//       </div>
-//     </main>
-//   );
-// }
 
 export default function MerchandisePage() {
   const { data: session } = useSession();
@@ -169,12 +73,12 @@ export default function MerchandisePage() {
         { y: "0%", duration: 1.2, stagger: 0.05, ease: "expo.out" },
         0.2
       )
-      .fromTo(
-        ".merch-fade-in",
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 0.8, stagger: 0.1 },
-        "<"
-      );
+        .fromTo(
+          ".merch-fade-in",
+          { opacity: 0, y: 20 },
+          { opacity: 1, y: 0, duration: 0.8, stagger: 0.1 },
+          "<"
+        );
     },
     { scope: containerRef }
   );
@@ -230,7 +134,6 @@ export default function MerchandisePage() {
       const { customTextOption, ...dataToSend } = formData;
 
       await handlePayment({
-        amount: 349, // From Price component
         ...dataToSend,
       });
     } catch (err: any) {
@@ -303,10 +206,9 @@ export default function MerchandisePage() {
                   border
                   transition
                   outline-none
-                  ${
-                    activeIndex === i
-                      ? "border-[#EBD87D] ring-2 ring-[#EBD87D]/60"
-                      : "border-white/40 hover:border-white"
+                  ${activeIndex === i
+                    ? "border-[#EBD87D] ring-2 ring-[#EBD87D]/60"
+                    : "border-white/40 hover:border-white"
                   }
                   focus-visible:ring-2
                   focus-visible:ring-[#EBD87D]
