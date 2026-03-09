@@ -96,8 +96,8 @@ export async function createMerchandiseOrder(paymentData: {
                 customer_email: user.email || "customer@example.com"
             },
             order_meta: {
-                return_url: `${process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'}/merchandise?order_id={order_id}`,
-                notify_url: `${process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'}/api/cashfree-webhook`
+                return_url: `${process.env.NEXT_PUBLIC_APP_URL || 'https://srijanju.in'}/merchandise?order_id={order_id}`,
+                notify_url: `${process.env.NEXT_PUBLIC_APP_URL || 'https://srijanju.in'}/api/cashfree-webhook`
             },
             order_note: `SHIRT - Size: ${size}, Color: ${color}, Campus: ${campus}`
         };
