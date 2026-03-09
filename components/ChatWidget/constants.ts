@@ -1,5 +1,5 @@
 export const BOT_AVATAR = "/images/kalpana-face.png";
-export const POSTER_BASE_URL = "/posters/";
+export const POSTER_BASE_URL = "/images/posters/";
 export const FALLBACK_AVATAR =
   "https://i.pinimg.com/1200x/5c/0b/fd/5c0bfd43a67433771a66d46ab09bef06.jpg";
 

@@ -1,8 +1,46 @@
 "use client";
 
-import { useRef, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 import { ExternalLink, Loader2, FileText } from "lucide-react";
 import { Message, QUICK_QUESTIONS, BOT_AVATAR, POSTER_BASE_URL, FALLBACK_AVATAR } from "./constants";
+
+function renderMarkdown(text: string): React.ReactNode[] {
+  const lines = text.split("\n");
+  return lines.map((line, li) => {
+    // Tokenise each line into bold / italic / link / plain spans
+    const tokens: React.ReactNode[] = [];
+    const re = /(\*\*(.+?)\*\*)|(\*(.+?)\*)|(https?:\/\/[^\s]+)/g;
+    let last = 0;
+    let match;
+    let ti = 0;
+    while ((match = re.exec(line)) !== null) {
+      if (match.index > last) {
+        tokens.push(<span key={`t-${li}-${ti++}`}>{line.slice(last, match.index)}</span>);
+      }
+      if (match[1]) {
+        tokens.push(<strong key={`t-${li}-${ti++}`} style={{ fontWeight: 700 }}>{match[2]}</strong>);
+      } else if (match[3]) {
+        tokens.push(<em key={`t-${li}-${ti++}`}>{match[4]}</em>);
+      } else if (match[5]) {
+        tokens.push(
+          <a key={`t-${li}-${ti++}`} href={match[5]} target="_blank" rel="noopener noreferrer"
+            style={{ color: "#ebd87d", textDecoration: "underline" }}>
+            {match[5]}
+          </a>
+        );
+      }
+      last = match.index + match[0].length;
+    }
+    if (last < line.length) tokens.push(<span key={`t-${li}-${ti++}`}>{line.slice(last)}</span>);
+    return (
+      <span key={`line-${li}`}>
+        {tokens.length ? tokens : <span>&nbsp;</span>}
+        {li < lines.length - 1 && <br />}
+      </span>
+    );
+  });
+}
+
 
 interface ChatMessagesProps {
   messages: Message[];
@@ -86,7 +124,7 @@ export function ChatMessages({ messages, isLoading, onQuickReply }: ChatMessages
                         background: "rgba(255,255,255,0.04)",
                         color: "rgba(255,255,255,0.88)",
                         border: "1px solid rgba(235,216,125,0.1)",
-                        lineHeight: 1.6, wordBreak: "break-word", whiteSpace: "pre-wrap",
+                        lineHeight: 1.6, wordBreak: "break-word",
                       }
                 }
               >
@@ -107,7 +145,7 @@ export function ChatMessages({ messages, isLoading, onQuickReply }: ChatMessages
                   </div>
                 )}
 
-                <div>{msg.content}</div>
+                <div>{renderMarkdown(msg.content)}</div>
 
                 {/* Event poster */}
                 {msg.poster && msg.poster !== "None" && msg.poster !== "" && (
