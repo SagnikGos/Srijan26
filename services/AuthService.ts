@@ -5,7 +5,7 @@ import bcrypt from "bcryptjs";
 import { prisma } from "@/prisma/client";
 import { UserRole } from "@prisma/client";
 import { auth, signIn, unstable_update } from "@/auth";
-import { redirect } from "next/navigation";
+import { redirect, notFound } from "next/navigation";
 import { CONST } from "@/utils/constants";
 import { AuthError } from "next-auth";
 import { revalidateTag } from "next/cache";
@@ -184,7 +184,7 @@ const checkAdminAuthorization = async () => {
   const session = await auth();
 
   if (!session || !session.user || !["ADMIN", "SUPERADMIN"].includes(session.user.role)) {
-    redirect("/admin/login");
+    notFound();
   }
   return session.user;
 };
@@ -197,7 +197,7 @@ const checkSuperAdminAuthorization = async () => {
     !session.user ||
     session.user.role !== "SUPERADMIN"
   ) {
-    redirect("/admin/login");
+    notFound();
   }
 
   return session.user;
