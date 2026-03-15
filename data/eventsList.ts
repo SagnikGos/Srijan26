@@ -973,6 +973,7 @@ const ESPORTS_EVENTS: Event[] = [
       { name: "ANSH KUMAR SINGH", contact: "9775756073" }
     ]
   },
+  /*
   {
     id: "e-sp5",
     slug: "efootball",
@@ -995,6 +996,7 @@ const ESPORTS_EVENTS: Event[] = [
       { name: "SOUMAYAN NANDI", contact: "8017041628" }
     ]
   },
+  */
 
   /*
   {
@@ -1333,7 +1335,7 @@ const MISC_EVENTS: Event[] = [
     prizePool: "TBA",
     link: "/register/quizotopia",
     driveLink: "https://drive.google.com/file/d/1aKIjhATFQ4f7aUcJ6SJRibZczHExCn9S/view?usp=drivesdk",
-    image: "/images/posters/brainstorming-default.webp",
+    image: "/images/posters/quizotopia.webp",
     tags: ["Quiz", "GK"],
     status: "Open",
     coordinators: [
