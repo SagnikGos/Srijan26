@@ -1,8 +1,5 @@
-import fs from "fs/promises";
-import path from "path";
 import { unstable_cache, revalidateTag } from "next/cache";
-
-const DATA_FILE = path.join(process.cwd(), "data", "liveEvents.json");
+import { prisma } from "@/prisma/client";
 
 export interface LiveEvent {
     id: string;
@@ -12,19 +9,16 @@ export interface LiveEvent {
     location: string;
 }
 
-async function ensureFile() {
-    try {
-        await fs.access(DATA_FILE);
-    } catch {
-        await fs.writeFile(DATA_FILE, "[]", "utf-8");
-    }
-}
-
 const _getLiveEvents = async (): Promise<LiveEvent[]> => {
-    await ensureFile();
-    const data = await fs.readFile(DATA_FILE, "utf-8");
     try {
-        return JSON.parse(data);
+        const events = await prisma.liveEvent.findMany();
+        return events.map((e) => ({
+            id: e.id,
+            slug: e.slug,
+            name: e.name,
+            round: e.round,
+            location: e.location,
+        }));
     } catch {
         return [];
     }
@@ -37,27 +31,35 @@ export const getLiveEvents = unstable_cache(
 );
 
 export async function addLiveEvent(event: Omit<LiveEvent, "id">): Promise<LiveEvent> {
-    const events = await getLiveEvents();
-    const newEvent = { ...event, id: crypto.randomUUID() };
-    events.push(newEvent);
-    await fs.writeFile(DATA_FILE, JSON.stringify(events, null, 2), "utf-8");
+    const newEvent = await prisma.liveEvent.create({
+        data: event,
+    });
     revalidateTag("live-events", {});
-    return newEvent;
+    return {
+        id: newEvent.id,
+        slug: newEvent.slug,
+        name: newEvent.name,
+        round: newEvent.round,
+        location: newEvent.location,
+    };
 }
 
 export async function removeLiveEvent(id: string): Promise<void> {
-    const events = await getLiveEvents();
-    const filtered = events.filter((e) => e.id !== id);
-    await fs.writeFile(DATA_FILE, JSON.stringify(filtered, null, 2), "utf-8");
+    await prisma.liveEvent.delete({
+        where: { id }
+    });
     revalidateTag("live-events", {});
 }
 
 export async function updateLiveEvent(event: LiveEvent): Promise<void> {
-    const events = await getLiveEvents();
-    const index = events.findIndex((e) => e.id === event.id);
-    if (index !== -1) {
-        events[index] = event;
-        await fs.writeFile(DATA_FILE, JSON.stringify(events, null, 2), "utf-8");
-        revalidateTag("live-events", {});
-    }
+    await prisma.liveEvent.update({
+        where: { id: event.id },
+        data: {
+            slug: event.slug,
+            name: event.name,
+            round: event.round,
+            location: event.location
+        }
+    });
+    revalidateTag("live-events", {});
 }

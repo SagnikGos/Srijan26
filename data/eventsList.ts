@@ -31,10 +31,7 @@ const CODING_EVENTS: Event[] = [
       "Final winners will be decided after the presentations",
     ],
     lastDate: "TBA",
-    prizePool: "₹ 10,000",
-    winnerPrize: "₹5,000",
-    runnersUpPrize: "₹3,000",
-    secondRunnersUpPrize: "₹2,000",
+    prizePool: "TBD",
     link: "/register/epoch",
     driveLink:
       "https://drive.google.com/file/d/1z0xX5WVTDhK1wkC3i5FxChVbZXf2TRUC/view?usp=sharing",
@@ -80,10 +77,7 @@ const CODING_EVENTS: Event[] = [
       "Final rankings determine the winners",
     ],
     lastDate: "TBA",
-    prizePool: "₹ 10,000",
-    winnerPrize: "₹5,000",
-    runnersUpPrize: "₹3,000",
-    secondRunnersUpPrize: "₹2,000",
+    prizePool: "TBD",
     link: "/register/h42",
     driveLink:
       "https://drive.google.com/file/d/1WOEO91mqBPM8umnUz-oItd_6SMpwZ3Qm/view?usp=sharing",
@@ -106,7 +100,7 @@ const CODING_EVENTS: Event[] = [
     teamSize: "3",
     rules: ["CTF", "Cryptography", "Logic", "Deduction"],
     lastDate: "TBA",
-    prizePool: "₹ 6,000",
+    prizePool: "TBD",
     link: "/register/sherlocked",
     driveLink:
       "https://drive.google.com/file/d/1F4J8PDFqJRPXe4cvHb8S1DwjTTqTDvk0/view?usp=sharing",
@@ -188,7 +182,7 @@ const CODING_EVENTS: Event[] = [
     teamSize: "3",
     rules: ["CP", "Team Relay", "Clues based"],
     lastDate: "TBA",
-    prizePool: "₹ 10,000",
+    prizePool: "TBD",
     link: "/register/ptb",
     driveLink:
       "https://docs.google.com/document/d/1jPDI7aU0oLEpA4f6MfH-RSeWmv8yjYDPhM0FFSNEfDk/edit?usp=sharing",
@@ -1411,7 +1405,7 @@ const MISC_EVENTS: Event[] = [
     rules: ["Water rocket", "Range", "Stability"],
     lastDate: "TBA",
     prizePool: "₹ 6,000",
-    link: "/register/jalastra",
+    link: "/register/jal",
     driveLink:
       "https://drive.google.com/file/d/1qGnSBS5eID0jT-z9-1FuVTlkj0hkj2Ug/view?usp=drivesdk",
     image: "/images/posters/jal.webp",
