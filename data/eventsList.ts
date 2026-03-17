@@ -369,7 +369,7 @@ const CODING_EVENTS: Event[] = [
     winnerPrize: "₹3,000",
     runnersUpPrize: "₹2,000",
     secondRunnersUpPrize: "₹1,000",
-    link: "/register/Uncode",
+    link: "/register/uncode",
     driveLink:
       "https://drive.google.com/file/d/1p5xzORf9OflUKbzXglhheJ-A-F53WZWF/view?usp=sharing",
     coordinators: [
