@@ -30,7 +30,7 @@ export default function EventsPage() {
   });
 
   return (
-    <ReactLenis root> 
+    <ReactLenis root>
       <div className="relative min-h-screen text-white font-sans selection:bg-orange-400 selection:text-white">
         <WavyGradient
           color1="#F09400"
@@ -53,6 +53,7 @@ export default function EventsPage() {
             statuses={STATUSES}
             activeStatus={activeStatus}
             setActiveStatus={setActiveStatus}
+            totalEvents={filteredEvents.length}
           />
           <MobileFilter
             categories={CATEGORIES}
@@ -61,12 +62,13 @@ export default function EventsPage() {
             statuses={STATUSES}
             activeStatus={activeStatus}
             setActiveStatus={setActiveStatus}
+            totalEvents={filteredEvents.length}
           />
           <div className="flex-1 min-w-0">
             <EventGrid filteredEvents={filteredEvents} />
           </div>
         </main>
       </div>
-    </ReactLenis>  
+    </ReactLenis>
   );
 }

@@ -8,6 +8,7 @@ import { Toaster } from "react-hot-toast";
 import SmoothScroll from "@/components/Landing/SmoothScroll";
 import Footer from "@/components/Landing/Footer";
 import { SessionProvider } from "next-auth/react";
+import ChatWidget from "@/components/ChatWidget";
 
 const euclid = localFont({
     variable: "--font-euclid",
@@ -82,6 +83,7 @@ export default function RootLayout({
                                 <NavBar />
                                 {children}
                                 <Footer />
+                                <ChatWidget />
                             </ConfirmationDialogContextProvider>
                         </MobileNavProvider>
                     </SmoothScroll>

@@ -307,3 +307,16 @@ model CampusAmbassador {
   referralCode  String @unique
   referralCount Int    @default(0)
 }
+
+/**
+ * LIVE EVENTS
+ */
+model LiveEvent {
+  id       String @id @default(auto()) @map("_id") @db.ObjectId
+  slug     String
+  name     String
+  round    String
+  location String
+
+  @@map("live_event")
+}
