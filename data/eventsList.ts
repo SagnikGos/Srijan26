@@ -563,7 +563,6 @@ const ROBOTICS_EVENTS: Event[] = [
     ],
   },
 
-  /*
   {
     id: "r6",
     slug: "control-craft",
@@ -573,12 +572,23 @@ const ROBOTICS_EVENTS: Event[] = [
     description: "Synergy between mechanical design and human control. Pilot a manual robot through a complex course, performing pick-and-place tasks with dexterity.",
     format: "Offline",
     teamSize: "4",
-    rules: ["Manual robot", "Pick and Place", "Obstacle course"],
+    rules: [
+      "Each team must not exceed 4 members. Members can be from any department and any year from the same or different institutions.",
+      "The maximum dimension of the robot can be 20cm x 20cm x 15cm (l*b*h) including wheels excluding the manipulator. Correction up to 1cm is allowed.",
+      "Equip your robot with a reliable four-wheel roving mechanism & a pick-and-place manipulator mechanism.",
+      "Implement a Wired or Wireless communication to control the robot's motion and pick and place mechanism. [everything will be manually controlled]",
+      "The length of the wire (for wired bots) should be long enough so as to avoid tangling.",
+      "Maximum permissible weight including the manipulator must not exceed 4kgs.",
+      "Teams have to compete in this event by making its path through a specified track or arena.",
+      "Participants are not supposed to use any readymade Lego components or readymade gripping mechanism. However, the participants are allowed to use ready-made gear assemblies.",
+      "In the case of an electric power supply, the voltage between any two points should be less than or equal to 12V DC at all times during the run.",
+      "AC power supply will be provided if needed for wired bots."
+    ],
     lastDate: "TBA",
     prizePool: "N/A",
-    link: "/register/control-craft",
+    link: "/register/CC",
     driveLink: "https://drive.google.com/drive/folders/10zfK0vRqXm0nqB5xAQvYmXyKkoTLlxNR",
-    image: "/images/posters/robotics-default.webp",
+    image: "/images/posters/control-craft.webp",
     tags: ["Manual Bot", "Mechatronics"],
     status: "Open",
     coordinators: [
@@ -587,9 +597,7 @@ const ROBOTICS_EVENTS: Event[] = [
       { name: "Shreyas Ray", contact: "6291516600" }
     ]
   },
-  */
 
-  /*
   {
     id: "r7",
     slug: "rope-runner",
@@ -599,12 +607,31 @@ const ROBOTICS_EVENTS: Event[] = [
     description: "Challenge gravity! Design wheel-less robots to cling and crawl across a suspended rope. Demands speed, precision, and innovative gripping mechanisms.",
     format: "Offline",
     teamSize: "4",
-    rules: ["Wheel-less robot", "Rope crawling", "Friction Frontiers"],
+    rules: [
+  "Bot size must not exceed 20cm x 10cm x 15cm, with +5 cm allowed under penalty",
+  "Bot weight must not exceed 750 grams",
+  "Bot must remain structurally intact; no parts should detach during the run",
+  "Only gripping and crawling mechanisms are allowed; wheels, propellers, sliding mechanisms, and flammable fuels are prohibited",
+  "Bot must not damage, scratch, or cut the rope",
+  "Bot must not touch the ground while on the rope",
+  "No external force or support may be applied to the rope or setup during the run",
+  "Rope position and tension must not be altered",
+  "Bot must complete the track within a maximum of 5 minutes",
+  "Each team gets two attempts; the best attempt is considered",
+  "Bots that fail are scored based on last checkpoint reached and time taken",
+  "If a bot falls, it must restart from the last checkpoint",
+  "Only one team member and authorized personnel may handle the bot during gameplay",
+  "Teams must report on time; delays may lead to loss of attempts",
+  "Participants must follow all instructions from organizers and judges",
+  "Judges' decisions are final and binding",
+  "Misconduct or non-cooperation will result in penalties or disqualification",
+  "Organizers reserve the right to modify rules for safety or fairness"
+],
     lastDate: "TBA",
     prizePool: "N/A",
-    link: "/register/rope-runner",
+    link: "/register/RR",
     driveLink: "https://drive.google.com/drive/folders/1qxolD1GtNA98UhYNMXRCaaFjtsXnFTLc",
-    image: "/images/posters/robotics-default.webp",
+    image: "/images/posters/rope-runner.webp",
     tags: ["Mechatronics", "Innovation"],
     status: "Open",
     coordinators: [
@@ -613,7 +640,7 @@ const ROBOTICS_EVENTS: Event[] = [
       { name: "Oum Pradhan", contact: "7595877944" }
     ]
   },
-  */
+
   {
     id: "r11",
     slug: "thunderbolts",
@@ -664,7 +691,6 @@ const ROBOTICS_EVENTS: Event[] = [
     ],
   },
 
-  /*
   {
     id: "r15",
     slug: "rbs",
@@ -674,12 +700,21 @@ const ROBOTICS_EVENTS: Event[] = [
     description: "Where robotics and soccer merge! Watch cutting-edge bots battle it out in a dynamic, high-energy arena. Experience innovation and competitive spirit.",
     format: "Offline",
     teamSize: "3-5",
-    rules: ["Robot soccer", "Team sport", "High energy"],
+    rules: [
+      "Teams must follow the prescribed format and timing.",
+      "No external help or unfair means allowed.",
+      "Only provided clues/data can be used.",
+      "Judges’ decisions are final.",
+      "Maintain discipline and decorum.",
+      "Top teams qualify for finals.",
+      "Final evaluation based on logic, accuracy, and speed.",
+      "Organizers may modify rules or schedule."
+    ],
     lastDate: "TBA",
     prizePool: "₹ 6,000",
-    link: "/register/robosoccer",
+    link: "/register/rbs",
     driveLink: "https://drive.google.com/file/d/10w3ZrrgQb6ivtEoj5gcCHaNoIcf8j96o/view?usp=drivesdk",
-    image: "/images/posters/robotics-default.webp",
+    image: "/images/posters/rbs.webp",
     tags: ["Sports", "Robotics"],
     status: "Open",
     coordinators: [
@@ -688,7 +723,6 @@ const ROBOTICS_EVENTS: Event[] = [
       { name: "Sambit Mondal", contact: "8900237615" }
     ]
   },
-  */
 
   {
     id: "r16",
@@ -1032,7 +1066,6 @@ const BRAINSTORMING_EVENTS: Event[] = [
     ],
   },
 
-  /*
   {
     id: "br7",
     slug: "cc",
@@ -1042,11 +1075,26 @@ const BRAINSTORMING_EVENTS: Event[] = [
     description: "Two offline rounds presenting case studies. Provide the most accurate solution in the shortest possible time. Fastest and most accurate wins.",
     format: "Offline",
     teamSize: "Individual",
-    rules: ["Case study", "Time-based", "Accuracy"],
+    rules: [
+    "Participants must compete in teams as per the specified team size limits.",
+    "All rounds will be conducted offline at the designated venue.",
+    "Teams must report to the venue before the start time of each round.",
+    "Use of mobile phones, internet, or any external assistance during the rounds is strictly prohibited unless explicitly allowed.",
+    "Participants must rely only on the clues and information provided in the case study.",
+    "Any form of malpractice or unfair means will lead to immediate disqualification.",
+    "Decisions made by the judges will be final and binding.",
+    "In Round 1, teams will be evaluated based on accuracy and time taken to solve the case.",
+    "Only the top-performing teams from Round 1 will qualify for the finals.",
+    "In Round 2, teams must present their logical reasoning and final conclusion clearly.",
+    "Evaluation in the final round will be based on analytical thinking, correctness, clarity of explanation, and speed.",
+    "Teams must maintain discipline and decorum throughout the event.",
+    "Event coordinators reserve the right to modify rules or schedules if necessary.",
+    "Participants are responsible for keeping track of any updates or changes in the event schedule."
+  ],
     lastDate: "TBA",
     prizePool: "Prizes worth ₹3,000",
-    link: "/register/cold-case",
-    driveLink: "https://srijanju.in/events/cold-case-details",
+    link: "/register/cc",
+    driveLink: "https://docs.google.com/document/d/1_HZBnWYEEW9M6EFlxbaBr_4AKHD14MVR/edit?usp=drivesdk&ouid=113447570621361395808&rtpof=true&sd=true",
     image: "/images/posters/cc.webp",
     tags: ["Analysis", "Critical Thinking"],
     status: "Open",
@@ -1055,7 +1103,6 @@ const BRAINSTORMING_EVENTS: Event[] = [
       { name: "Ankita Bhattacharya", contact: "7980006741" }
     ]
   },
-  */
   {
     id: "br3",
     slug: "xstream",
@@ -1524,7 +1571,6 @@ const MISC_EVENTS: Event[] = [
     ],
   },
 
-  /*
   {
     id: "m6",
     slug: "djk",
@@ -1534,12 +1580,23 @@ const MISC_EVENTS: Event[] = [
     description: "No Mercy, Only Memes! A two-round meme war with Online Prelims and an Offline Grand Finale. Transform random images into the funniest memes live.",
     format: "Offline",
     teamSize: "Individual",
-    rules: ["Meme making", "Originality", "Humor"],
+    rules: [
+  "Submit 3 original memes within 48 hours",
+  "Only allowed themes must be followed",
+  "Strictly no sexual, political, religious, or offensive content",
+  "No plagiarism (leads to immediate disqualification)",
+  "Top entries selected based on engagement + judges",
+  "Finalists must create a meme from a given image",
+  "Limited time will be provided in finals",
+  "Memes will be presented live",
+  "Final results based on judges + audience voting",
+  "Participants must follow all event guidelines"
+],
     lastDate: "TBA",
     prizePool: "Prizes worth ₹3,000",
-    link: "/register/dank-junk",
+    link: "/register/djk",
     driveLink: "https://drive.google.com/file/d/1LFNCMn4ZJzvML1f0N-yHJ4QOLrv8JHBT/view?usp=drivesdk",
-    image: "/images/posters/misc-default.webp",
+    image: "/images/posters/djk.webp",
     tags: ["Memes", "Creativity", "Humor"],
     status: "Open",
     coordinators: [
@@ -1548,7 +1605,6 @@ const MISC_EVENTS: Event[] = [
       { name: "Satadru Das", contact: "8240064430" }
     ]
   },
-  */
 
   {
     id: "m7",
