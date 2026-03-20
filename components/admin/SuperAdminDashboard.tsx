@@ -132,6 +132,7 @@ export function SuperAdminDashboard({ user }: SuperAdminDashboardProps) {
     const [loadingAdmins, setLoadingAdmins] = useState(false);
     const [loadingEvents, setLoadingEvents] = useState(false);
     const [activeTab, setActiveTab] = useState<string>("users");
+    const [clearingCache, setClearingCache] = useState(false);
 
     useEffect(() => {
         fetchUsers();
@@ -139,6 +140,27 @@ export function SuperAdminDashboard({ user }: SuperAdminDashboardProps) {
         fetchLiveEvents();
         fetchDbEvents();
     }, []);
+
+    async function handleClearCache() {
+        if (!confirm("Are you sure you want to clear all Next.js caches? This will affect all live site data until re-fetched.")) return;
+        setClearingCache(true);
+        try {
+            const res = await fetch("/api/superadmin/clear-cache", {
+                method: "POST"
+            });
+            const data = await res.json();
+            if (res.ok) {
+                alert("Cache cleared successfully!");
+            } else {
+                alert(data.error || "Failed to clear cache");
+            }
+        } catch (error) {
+            console.error("Failed to clear cache", error);
+            alert("Error clearing cache");
+        } finally {
+            setClearingCache(false);
+        }
+    }
 
     useEffect(() => {
         if (selectedEventId) {
@@ -489,7 +511,16 @@ export function SuperAdminDashboard({ user }: SuperAdminDashboardProps) {
                             <h1 className="text-xl font-semibold text-slate-900">SuperAdmin Dashboard</h1>
                         </div>
                         <div className="flex items-center gap-3">
-                            <div className="text-right">
+                            <Button 
+                                variant="outline" 
+                                size="sm" 
+                                onClick={handleClearCache} 
+                                disabled={clearingCache}
+                                className="text-red-600 border-red-200 hover:bg-red-50 hover:text-red-700"
+                            >
+                                {clearingCache ? "Clearing..." : "Clear Caches"}
+                            </Button>
+                            <div className="text-right hidden sm:block">
                                 <p className="text-sm text-slate-600">{user.email}</p>
                             </div>
                             <Badge className="bg-slate-900 text-white border-slate-900">SUPERADMIN</Badge>
