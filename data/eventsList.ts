@@ -1554,7 +1554,7 @@ const MISC_EVENTS: Event[] = [
     color: "#EA423F",
     description:
       "Trilingual Oxford Debate. Clash against debaters from across the country while competing for exciting prizes across prelims and finals.",
-    format: "Online",
+    format: "Offline",
     teamSize: "Individual",
     rules: ["Oxford style", "Trilingual", "2 Rounds"],
     lastDate: "TBA",
@@ -1595,7 +1595,7 @@ const MISC_EVENTS: Event[] = [
     lastDate: "TBA",
     prizePool: "Prizes worth ₹3,000",
     link: "/register/djk",
-    driveLink: "https://drive.google.com/file/d/1LFNCMn4ZJzvML1f0N-yHJ4QOLrv8JHBT/view?usp=drivesdk",
+    driveLink: "https://drive.google.com/file/d/1t-APfXk932svAG2iYVcZ0nCrhGMYaKRT/view?usp=sharing",
     image: "/images/posters/djk.webp",
     tags: ["Memes", "Creativity", "Humor"],
     status: "Open",
