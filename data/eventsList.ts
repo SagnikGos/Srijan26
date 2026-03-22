@@ -324,7 +324,7 @@ const CODING_EVENTS: Event[] = [
     winnerPrize: "₹4,000",
     runnersUpPrize: "₹2,500",
     secondRunnersUpPrize: "₹2,000",
-    link: "/register/h4g",
+    link: "https://unstop.com/hackathons/hackforge-srijan-2026-jadavpur-university-kolkata-1649998",
     driveLink:
       "https://docs.google.com/document/d/1hU4U0AAEY1ZECqtupltfj_OuLTto-oRVjA-vmrLVn14/edit?usp=sharing",
     coordinators: [
@@ -865,7 +865,7 @@ const BUSINESS_EVENTS: Event[] = [
     ],
     lastDate: "TBA",
     prizePool: "₹ 6,000",
-    link: "/register/case-o-mania",
+    link: "https://unstop.com/competitions/case-o-mania-srijan-2026-jadavpur-university-kolkata-1658419",
     driveLink:
       "https://drive.google.com/file/d/1Ze4R-t8hTFkBCecWoB9tY9I2DwQlhv6R/view?usp=drivesdk",
     image: "/images/posters/case-o-mania.webp",
@@ -973,7 +973,9 @@ const BUSINESS_EVENTS: Event[] = [
       "Final Presentation: A 4-5 minute pitch followed by a 2-3 minute Q&A and a live 'constraint-based defense' to test adaptability.",
       "Evaluation: Judged on structural feasibility, branding impact, cost efficiency, and market viability.",
     ],
-    lastDate: "TBA",
+    lastDate: "March 31, 2026",
+    prelimsDate: "April 2, 2026",
+    finalsDate: "April 10, 2026",
     prizePool: "₹ 7,000",
     link: "/register/pkv",
     driveLink:

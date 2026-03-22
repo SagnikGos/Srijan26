@@ -17,9 +17,10 @@ const RegisterButton: React.FC<RegisterButtonProps> = ({ status, link, isCard })
   const { data: session } = useSession();
   const router = useRouter();
   const desktopClipStyle = { "--desktop-clip": CLIP_PATH } as React.CSSProperties;
+  const isExternal = link.startsWith("http");
 
   const handleRegisterClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    if (!session) {
+    if (!session && !isExternal) {
       e.preventDefault();
       router.push(`/login?redirect=${encodeURIComponent(link)}`);
     }
@@ -31,7 +32,7 @@ const RegisterButton: React.FC<RegisterButtonProps> = ({ status, link, isCard })
         style={desktopClipStyle}
         className={`bg-gray-800 text-gray-500 font-euclid uppercase tracking-wider cursor-not-allowed flex items-center justify-center gap-2
           ${isCard
-            ? "py-2 w-full text-xs font-bold [clip-path:var(--desktop-clip)]" 
+            ? "py-2 w-full text-xs font-bold [clip-path:var(--desktop-clip)]"
             : "flex-1 sm:flex-none px-6 py-2 md:pl-10 md:pr-16 md:py-2 lg:text-sm text-xs rounded-full md:rounded-none md:[clip-path:var(--desktop-clip)]"
           }`}
       >
@@ -45,6 +46,8 @@ const RegisterButton: React.FC<RegisterButtonProps> = ({ status, link, isCard })
       href={link}
       prefetch={false}
       onClick={handleRegisterClick}
+      target={isExternal ? "_blank" : undefined}
+      rel={isExternal ? "noopener noreferrer" : undefined}
       style={desktopClipStyle}
       className={`text-white font-euclid uppercase font-bold tracking-wider transition-all duration-150 flex items-center justify-center gap-2 bg-red hover:bg-red-700 active:bg-red-800
         ${isCard
