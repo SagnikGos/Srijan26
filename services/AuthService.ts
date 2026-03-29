@@ -132,7 +132,8 @@ const signup = async (user: User, hCaptchaToken: string | null) => {
     const dbUser = {
       ...userData,
       password: hashedPassword,
-      role: userData.role as UserRole
+      // role: userData.role as UserRole
+      role: "USER" as UserRole
     };
 
     await prisma.user.create({ data: dbUser });
