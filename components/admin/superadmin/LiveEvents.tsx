@@ -187,8 +187,8 @@ async function handleLiveEventSubmit() {
                                                             <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                                                         </Button>
                                                     </PopoverTrigger>
-                                                    <PopoverContent className="w-full p-0 bg-white border-slate-200">
-                                                        <Command className="bg-white">
+                                                    <PopoverContent className="w-full p-0 bg-zinc-800 border-slate-200">
+                                                        <Command className="bg-zinc-800">
                                                             <CommandInput placeholder="Search event..." className="border-none focus:ring-0" />
                                                             <CommandList>
                                                                 <CommandEmpty>No event found.</CommandEmpty>
@@ -203,7 +203,7 @@ async function handleLiveEventSubmit() {
                                                                                     setNewEventSlug(slug);
                                                                                     setLiveEventSearchOpen(false);
                                                                                 }}
-                                                                                className="text-slate-900 hover:bg-slate-100 cursor-pointer"
+                                                                                className="text-white cursor-pointer"
                                                                             >
                                                                                 <Check
                                                                                     className={cn(
@@ -288,7 +288,7 @@ async function handleLiveEventSubmit() {
                                                 ) : (
                                                     liveEvents.map((event) => (
                                                         <TableRow key={event.id}>
-                                                            <TableCell className="font-medium text-slate-900">{event.name}</TableCell>
+                                                            <TableCell className="font-medium">{event.name}</TableCell>
                                                             <TableCell>{event.round}</TableCell>
                                                             <TableCell>{event.location}</TableCell>
                                                             <TableCell className="text-right flex justify-end gap-2">

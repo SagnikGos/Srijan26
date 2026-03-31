@@ -31,8 +31,56 @@ import { Download } from "lucide-react";
 import { downloadCSV } from "@/utils/downloadCSV";
 import { MerchandiseData } from "@/types/superadmin";
 
+const TEMP_MERCH: MerchandiseData[] = [
+  {
+    "id": "ORD-001",
+    "size": "M",
+    "color": "BLACK",
+    "status": "Pending",
+    "preferredCampus": "JADAVPUR",
+    "customText": "Go Team!",
+    "user": {
+      "name": "Aarav Sharma",
+      "email": "aarav.sharma@example.com",
+      "phone": "9876543210",
+      "department": "Computer Science",
+      "year": "2026"
+    }
+  },
+  {
+    "id": "ORD-002",
+    "size": "L",
+    "color": "BLACK",
+    "status": "Shipped",
+    "preferredCampus": "JADAVPUR",
+    "customText": null,
+    "user": {
+      "name": "Priya Das",
+      "email": "priya.das@example.com",
+      "phone": null,
+      "department": "Mechanical Engineering",
+      "year": "2027"
+    }
+  },
+  {
+    "id": "ORD-003",
+    "size": null,
+    "color": "BLACK",
+    "status": "Delivered",
+    "preferredCampus": "JADAVPUR",
+    "customText": "Limited Edition",
+    "user": {
+      "name": "Rahul Verma",
+      "email": "rahul.verma@example.com",
+      "phone": "9123456780",
+      "department": null,
+      "year": "2029"
+    }
+  }
+]
+
 function Merchandise() {
-    const [merchandise, setMerchandise] = useState<MerchandiseData[]>([]);
+    const [merchandise, setMerchandise] = useState<MerchandiseData[]>(TEMP_MERCH);
     const [loadingMerch, setLoadingMerch] = useState(false);
 
     // Filters
@@ -42,9 +90,10 @@ function Merchandise() {
     );
     const [merchCampusFilter, setMerchCampusFilter] = useState<string>("all");
     const [merchColorFilter, setMerchColorFilter] = useState<string>("BLACK");
-    useEffect(() => {
-        fetchMerchandise();
-    }, []);
+    
+    // useEffect(() => {
+    //     fetchMerchandise();
+    // }, []);
 
     async function fetchMerchandise() {
         setLoadingMerch(true);
@@ -138,7 +187,7 @@ function Merchandise() {
                         <div className="flex items-center gap-2">
                             <Button
                                 onClick={exportMerchandise}
-                                className="bg-slate-900 hover:bg-slate-800 text-white"
+                                className="bg-slate-100 hover:bg-yellow transition-colors duration-200 text-black"
                             >
                                 <Download className="mr-2 h-4 w-4" /> Export CSV
                             </Button>
@@ -268,7 +317,7 @@ function Merchandise() {
                                         <TableRow>
                                             <TableCell
                                                 colSpan={9}
-                                                className="text-center py-8 text-slate-500"
+                                                className="text-center py-8 text-slate-200"
                                             >
                                                 No orders found matching
                                                 filters.
@@ -311,7 +360,7 @@ function Merchandise() {
                                                 <TableCell>
                                                     {m.preferredCampus}
                                                 </TableCell>
-                                                <TableCell className="italic text-slate-600">
+                                                <TableCell className="italic text-yellow">
                                                     {m.customText || "-"}
                                                 </TableCell>
                                             </TableRow>

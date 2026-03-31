@@ -199,8 +199,8 @@ function ManageAdmins() {
                                             <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                                         </Button>
                                     </PopoverTrigger>
-                                    <PopoverContent className="w-full p-0 bg-white border-slate-200">
-                                        <Command className="bg-white">
+                                    <PopoverContent className="w-full p-0 border-slate-200">
+                                        <Command className="bg-slate-900">
                                             <CommandInput
                                                 placeholder="Search event..."
                                                 className="border-none focus:ring-0"
@@ -222,7 +222,7 @@ function ManageAdmins() {
                                                                     false,
                                                                 );
                                                             }}
-                                                            className="text-slate-900 hover:bg-slate-100 cursor-pointer"
+                                                            className="text-slate-100 hover:bg-slate-100 cursor-pointer"
                                                         >
                                                             <Check
                                                                 className={cn(
@@ -318,16 +318,16 @@ function ManageAdmins() {
                         {/* Right Side: Current Admins */}
                         <div className="space-y-4">
                             <div className="flex items-center gap-2 pb-2">
-                                <ShieldCheck className="h-5 w-5 text-slate-900" />
-                                <h3 className="font-semibold text-slate-900">
+                                <ShieldCheck className="h-5 w-5 text-yellow" />
+                                <h3 className="font-semibold text-white">
                                     Current Admins{" "}
                                     {selectedEventId &&
                                         `(${eventAdmins.length}/3)`}
                                 </h3>
                             </div>
-                            <div className="rounded-md border border-slate-200 min-h-[200px] bg-slate-50/50">
+                            <div className="rounded-md border border-slate-200 min-h-[200px]">
                                 {!selectedEventId ? (
-                                    <div className="h-full flex items-center justify-center text-slate-400 text-sm p-4 text-center">
+                                    <div className="h-full flex items-center justify-center text-slate-200 text-sm p-4 text-center">
                                         Please select an event to view and
                                         manage admins.
                                     </div>
@@ -341,21 +341,21 @@ function ManageAdmins() {
                                         No admins assigned to this event yet.
                                     </div>
                                 ) : (
-                                    <div className="divide-y divide-slate-100 bg-white">
+                                    <div className="divide-y divide-slate-100">
                                         {eventAdmins.map((admin) => (
                                             <div
                                                 key={admin.id}
-                                                className="p-4 flex items-center justify-between"
+                                                className="p-4 flex items-center justify-between border-b"
                                             >
                                                 <div className="flex items-center gap-3">
                                                     <div className="h-8 w-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 font-bold text-xs">
                                                         {admin.name.charAt(0)}
                                                     </div>
                                                     <div>
-                                                        <p className="text-sm font-medium text-slate-900">
+                                                        <p className="text-sm font-medium text-slate-100">
                                                             {admin.name}
                                                         </p>
-                                                        <p className="text-xs text-slate-500">
+                                                        <p className="text-xs text-slate-200">
                                                             {admin.email}
                                                         </p>
                                                     </div>
