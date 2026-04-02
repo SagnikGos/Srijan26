@@ -41,7 +41,7 @@ const CODING_EVENTS: Event[] = [
       { name: "Atmik Goswami", contact: "8910425255" },
       { name: "Asmit Deb", contact: "6290050401" },
     ],
-    status: "Open",
+    status: "Closed",
   },
   {
     id: "e2",
