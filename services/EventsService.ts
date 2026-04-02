@@ -166,7 +166,7 @@ const createTeam = withAuth(
 
             const eventData = await prisma.event.findUnique({
                 where: {
-                    id: event.id,
+                    slug: event.slug,
                 },
                 select: {
                     registrationOpen: true,
@@ -219,7 +219,7 @@ const joinTeam = withAuth(
 
             // check db to make sure
             const eventData = await prisma.event.findUnique({
-                where: { id: event.id },
+                where: { slug: event.slug },
                 select: { registrationOpen: true },
             });
             if (!eventData?.registrationOpen)
@@ -446,6 +446,9 @@ const deleteTeam = withAuth(async (sessionUserId: string, team: Team) => {
     try {
         const oid = { $oid: team.id };
 
+        const eventStatus = await prisma.event.findFirst({where: {slug: team.eventSlug}});
+        if(!eventStatus?.registrationOpen) return {ok: false, message: "Registrations closed"};
+
         const existingTeam = await prisma.team.findUnique({
             where: {
                 id: team.id,
@@ -526,6 +529,7 @@ const leavePendingTeam = withAuth(
         try {
             if (sessionUserId !== id)
                 throw new Error("Invalid session - id mismatch");
+
             await prisma.team.update({
                 where: {
                     id: teamId,

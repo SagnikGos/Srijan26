@@ -17,7 +17,6 @@ export default async function Page({
   const { slug } = await params;
 
   const event = await getEventFromSlug(slug);
-  console.log(event)
   if (!event) return <NotFound />;
 
   const user = await checkAuthentication(`/register/${slug}`);

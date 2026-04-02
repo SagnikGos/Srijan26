@@ -11,7 +11,7 @@ function LeaveTeam({ teamId, id, registrationOpen }: { teamId: string; id: strin
     const modalContext = useConfirmationDialogContext();
     const router = useRouter();
     
-    if(!registrationOpen) return;
+    if(!registrationOpen) return null;
 
     const handleLeaveTeam = () => {
         modalContext.showDialog("Are you sure you want to leave this team?", () => {
