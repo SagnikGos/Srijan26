@@ -318,7 +318,9 @@ const CODING_EVENTS: Event[] = [
       "A **bonus section with 1–2 additional problems** appears in the final 30 minutes",
       "Total contest duration: **2 hours**",
     ],
-    lastDate: "TBA",
+    lastDate: "6th April",
+    prelimsDate: "7th April",
+    finalsDate: "11th April",
     prizePool: "₹ 10,000",
     link: "/register/ptb",
     driveLink:
@@ -809,7 +811,7 @@ const ROBOTICS_EVENTS: Event[] = [
     format: "Hybrid",
     teamSize: "2-3",
     rules: ["IoT", "Circuit making", "Auction"],
-    lastDate: "TBA",
+    lastDate: "5th April",
     prizePool: "₹ 15,000",
     link: "/register/iotbw",
     driveLink:
