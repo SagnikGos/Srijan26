@@ -118,10 +118,10 @@ const getEventFromSlug = async (slug: string) => {
    )();
 }
 
-   const getEventRegistrationStatus = async (slug: string) => 
-    unstable_cache(
+   const getEventRegistrationStatus = async (slug: string) => {
+    const eventSlug = getBackendSlug(slug);
+    return unstable_cache(
         async () => {
-            const eventSlug = getBackendSlug(slug);
             const event = await prisma.event.findUnique({
                 where: {
                     slug: eventSlug,
@@ -132,9 +132,10 @@ const getEventFromSlug = async (slug: string) => {
             });
             return event?.registrationOpen || false;
         },
-        [slug],
-        { tags: [slug] },
+        [eventSlug],
+        { tags: [eventSlug] },
    )();
+}
 
 const createTeam = withAuth(
     async (
@@ -604,8 +605,9 @@ const editTeamName = withAuth(
 
 const isUserRegistered = async (userId: string, slug: string) => {
     try{
+        if(!userId) return false;
         const session = await auth();
-        if (!userId || !session || session.user.id !== userId) return false; 
+        if (!session || session.user.id !== userId) return false; 
         const eventSlug = getBackendSlug(slug);
         const existingTeam = await prisma.team.findFirst({
             where: {
