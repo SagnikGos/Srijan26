@@ -317,6 +317,7 @@ const CODING_EVENTS: Event[] = [
       "Members rotate between parts every **30 minutes**",
       "A **bonus section with 1–2 additional problems** appears in the final 30 minutes",
       "Total contest duration: **2 hours**",
+      "For more information please join our [Whatsapp Group](https://chat.whatsapp.com/BkZby4Q5xCc064L3QCsEZT?mode=gi_t).",
     ],
     lastDate: "6th April",
     prelimsDate: "7th April",
