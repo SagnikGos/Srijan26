@@ -2195,6 +2195,14 @@ const MISC_EVENTS: Event[] = [
     rules: ["Photography", "Creativity", "Visual Storytelling"],
     lastDate: "TBA",
     prizePool: "NIL",
+    schedule: [
+      {
+        title: "Main Event",
+        timeSlots: [
+          { time: "11:00 am", venues: ["Around the campus (online event)"] }
+        ]
+      }
+    ],
     link: "/register/pixellense",
     driveLink:
       "https://drive.google.com/file/d/1MNxhmYoRsTENWJwPbv7MB-bBVr7e6SH4/view?usp=drivesdk",
@@ -2222,9 +2230,8 @@ const MISC_EVENTS: Event[] = [
     schedule: [
       {
         title: "Main Event",
-        date: "till 11th april",
         timeSlots: [
-          { time: "4:30 pm - 6:00 pm", venues: ["CAB Ground"] }
+          { time: "11:00 am", venues: ["Around the campus (online event)"] }
         ]
       }
     ],
@@ -2333,13 +2340,19 @@ const MISC_EVENTS: Event[] = [
     teamSize: "3",
     rules: ["Prelims and Finals", "Pounce-bounce", "3 members per team"],
     lastDate: "TBA",
-    prelimsDate: "10th April",
     schedule: [
       {
-        title: "Main Event",
+        title: "Prelims",
         date: "11th April",
         timeSlots: [
-          { time: "12:00 pm - 3:00 pm", venues: ["Stage"] }
+          { time: "12:00 pm - 1:00 pm", venues: ["Quad Stage"] }
+        ]
+      },
+      {
+        title: "Finale",
+        date: "11th April",
+        timeSlots: [
+          { time: "1:00 pm - 3:00 pm", venues: ["Quad Stage"] }
         ]
       }
     ],
@@ -2441,10 +2454,10 @@ const MISC_EVENTS: Event[] = [
     prelimsDate: "10 April 2026",
     schedule: [
       {
-        title: "Main Event",
+        title: "Finals",
         date: "10th April",
         timeSlots: [
-          { time: "4:30 pm - 6:00 pm", venues: ["CAB Ground"] }
+          { time: "4:30 pm - 6:00 pm", venues: ["Stage"] }
         ]
       }
     ],
@@ -2554,6 +2567,15 @@ const MISC_EVENTS: Event[] = [
     ],
     lastDate: "TBA",
     prizePool: "Exciting Prizes",
+    schedule: [
+      {
+        title: "Main Event",
+        date: "12th April",
+        timeSlots: [
+          { time: "11:00 am", venues: ["Around the campus (online event)"] }
+        ]
+      }
+    ],
     link: "/register/treasure-hunt",
     driveLink:
       "https://drive.google.com/file/d/185-KUtYUhOg-SaRIcbPkYxiVDFnEt6BG/view?usp=sharing",
